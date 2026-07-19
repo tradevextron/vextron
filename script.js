@@ -396,7 +396,7 @@ function initForexCalculator() {
         size: document.querySelector("#calc-size"),
         button: document.querySelector("#calc-button"),
         hero: document.querySelector("#calc-result-hero"),
-        profitLoss: document.querySelector("#calc-profit-loss"),
+        scenarioResult: document.querySelector("#calc-scenario-result"),
         summary: document.querySelector("#calc-summary"),
         pipValue: document.querySelector("#calc-pip-value"),
         move: document.querySelector("#calc-move"),
@@ -609,17 +609,17 @@ function initForexCalculator() {
         const exit = Number(fields.exit.value);
         const size = Math.max(Number(fields.size.value), 0);
         const rawMove = entry > 0 ? (exit - entry) / pipSize : 0;
-        const signedMove = direction === "sell" ? -rawMove : rawMove;
-        const profitLoss = signedMove * pipValue * size;
+        const signedMove = direction === "short" ? -rawMove : rawMove;
+        const scenarioResult = signedMove * pipValue * size;
         const isCrypto = pair === "BTC/USD" || pair === "ETH/USD";
         const unitLabel = isCrypto ? "coin" : "lot";
         const moveLabel = isCrypto ? "points" : "pips";
-        const directionLabel = direction === "sell" ? "Sell" : "Buy";
+        const directionLabel = direction === "short" ? "Short scenario" : "Long scenario";
 
-        fields.hero.classList.toggle("is-profit", profitLoss >= 0);
-        fields.hero.classList.toggle("is-loss", profitLoss < 0);
-        fields.profitLoss.textContent = money.format(profitLoss);
-        fields.summary.textContent = `${pair} ${directionLabel} from ${entry || 0} to ${exit || 0} with ${size.toFixed(2)} ${unitLabel}${size === 1 ? "" : "s"}.`;
+        fields.hero.classList.toggle("is-profit", scenarioResult >= 0);
+        fields.hero.classList.toggle("is-loss", scenarioResult < 0);
+        fields.scenarioResult.textContent = money.format(scenarioResult);
+        fields.summary.textContent = `${pair} ${directionLabel.toLowerCase()} from ${entry || 0} to ${exit || 0} with ${size.toFixed(2)} ${unitLabel}${size === 1 ? "" : "s"}.`;
         fields.pipValue.textContent = money.format(pipValue);
         fields.move.textContent = `${signedMove.toFixed(1)} ${moveLabel}`;
         fields.sizeOutput.textContent = `${size.toFixed(2)} ${unitLabel}${size === 1 ? "" : "s"}`;
