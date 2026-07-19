@@ -26,6 +26,7 @@ app.use("/api/paddle/webhook", paddleWebhookRouter);
 app.use(express.json({ limit: "1mb" }));
 
 app.use("/api/health", healthRouter);
+app.use("/", healthRouter);
 app.use("/api/profile", profileRouter);
 app.use("/api/checkout", checkoutRouter);
 

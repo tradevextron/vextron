@@ -5,12 +5,24 @@ const environment = config.paddle.environment === "sandbox"
     ? Environment.sandbox
     : Environment.production;
 
-export const paddle = new Paddle(config.paddle.apiKey, {
-    environment,
-});
+let paddleClient = null;
+
+function getPaddleClient() {
+    if (!config.paddle.apiKey) {
+        throw new Error("PADDLE_API_KEY is not configured.");
+    }
+
+    if (!paddleClient) {
+        paddleClient = new Paddle(config.paddle.apiKey, {
+            environment,
+        });
+    }
+
+    return paddleClient;
+}
 
 export async function createCheckoutTransaction({ user, plan, billingPeriod, priceId }) {
-    const transaction = await paddle.transactions.create({
+    const transaction = await getPaddleClient().transactions.create({
         items: [
             {
                 priceId,
@@ -35,7 +47,11 @@ export async function createCheckoutTransaction({ user, plan, billingPeriod, pri
 }
 
 export async function unmarshalPaddleWebhook(rawBody, signature) {
-    return paddle.webhooks.unmarshal(
+    if (!config.paddle.webhookSecret) {
+        throw new Error("PADDLE_WEBHOOK_SECRET is not configured.");
+    }
+
+    return getPaddleClient().webhooks.unmarshal(
         rawBody,
         config.paddle.webhookSecret,
         signature

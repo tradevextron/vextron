@@ -6,7 +6,7 @@ function required(name) {
     const value = process.env[name];
 
     if (!value) {
-        throw new Error(`Missing required environment variable: ${name}`);
+        return "";
     }
 
     return value;
@@ -53,3 +53,19 @@ export const config = {
         },
     },
 };
+
+export function missingEnvironmentVariables() {
+    return [
+        "SUPABASE_URL",
+        "SUPABASE_ANON_KEY",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "PADDLE_API_KEY",
+        "PADDLE_WEBHOOK_SECRET",
+        "PADDLE_PRICE_BASIC_MONTHLY",
+        "PADDLE_PRICE_PRO_MONTHLY",
+        "PADDLE_PRICE_ELITE_MONTHLY",
+        "PADDLE_PRICE_BASIC_YEARLY",
+        "PADDLE_PRICE_PRO_YEARLY",
+        "PADDLE_PRICE_ELITE_YEARLY",
+    ].filter((name) => !process.env[name]);
+}

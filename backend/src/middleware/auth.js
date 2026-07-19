@@ -1,6 +1,10 @@
 import { supabaseAdmin } from "../supabase.js";
 
 export async function requireUser(req, res, next) {
+    if (!supabaseAdmin) {
+        return res.status(503).json({ error: "Supabase service credentials are not configured." });
+    }
+
     const authHeader = req.get("authorization") || "";
     const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
 

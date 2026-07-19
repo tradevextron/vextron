@@ -23,6 +23,10 @@ function getFirstPriceId(data) {
 }
 
 export async function applyPaddleEvent(event) {
+    if (!supabaseAdmin) {
+        throw new Error("Supabase service credentials are not configured.");
+    }
+
     const eventType = getEventType(event);
     const data = getEventData(event);
     const customData = getCustomData(data);
