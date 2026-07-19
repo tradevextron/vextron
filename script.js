@@ -23,7 +23,7 @@ async function loadComponents() {
         initSectionNavState();
         initForexCalculator();
         initPricingCards();
-        initPricingCheckout();
+        initPricingPlanLinks();
         initGetStartedPlan();
         initFaqAccordion();
         initMarketAnalysisReport();
@@ -240,129 +240,27 @@ function initPricingCards() {
     setBillingPeriod("monthly");
 }
 
-async function initPricingCheckout() {
-    const checkoutButtons = document.querySelectorAll("[data-checkout-plan]");
+function initPricingPlanLinks() {
+    const planLinks = document.querySelectorAll("[data-checkout-plan]");
 
-    if (!checkoutButtons.length) {
+    if (!planLinks.length) {
         return;
     }
 
-    const pendingCheckout = readPendingCheckout();
-
-    checkoutButtons.forEach((button) => {
-        button.addEventListener("click", async (event) => {
+    planLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
             event.preventDefault();
             event.stopPropagation();
 
-            const plan = button.dataset.checkoutPlan;
+            const plan = link.dataset.checkoutPlan;
             const billingPeriod = getCurrentBillingPeriod();
-
-            await startCheckout({ plan, billingPeriod, button });
+            window.location.href = `get-started.html?plan=${encodeURIComponent(plan)}&billing=${encodeURIComponent(billingPeriod)}`;
         });
     });
-
-    if (pendingCheckout) {
-        const button = document.querySelector(`[data-checkout-plan="${pendingCheckout.plan}"]`);
-
-        if (button) {
-            await startCheckout({
-                plan: pendingCheckout.plan,
-                billingPeriod: pendingCheckout.billingPeriod,
-                button,
-                isAutomatic: true,
-            });
-        }
-    }
 }
 
 function getCurrentBillingPeriod() {
     return document.querySelector(".pricing-billing-option.is-active")?.dataset.billing || "monthly";
-}
-
-function getSupabaseClient() {
-    const config = window.VEXTRON_SUPABASE || {};
-
-    if (!window.supabase?.createClient || !config.url || !config.anonKey) {
-        return null;
-    }
-
-    if (!window.vextronSupabaseClient) {
-        window.vextronSupabaseClient = window.supabase.createClient(config.url, config.anonKey);
-    }
-
-    return window.vextronSupabaseClient;
-}
-
-function readPendingCheckout() {
-    const raw = window.localStorage.getItem("vextron_pending_checkout");
-
-    if (!raw) {
-        return null;
-    }
-
-    window.localStorage.removeItem("vextron_pending_checkout");
-
-    try {
-        return JSON.parse(raw);
-    } catch {
-        return null;
-    }
-}
-
-function savePendingCheckout(plan, billingPeriod) {
-    window.localStorage.setItem("vextron_pending_checkout", JSON.stringify({
-        plan,
-        billingPeriod,
-    }));
-}
-
-async function startCheckout({ plan, billingPeriod, button, isAutomatic = false }) {
-    const client = getSupabaseClient();
-
-    if (!client) {
-        savePendingCheckout(plan, billingPeriod);
-        window.location.href = `login.html?checkout=1&plan=${encodeURIComponent(plan)}&billing=${encodeURIComponent(billingPeriod)}`;
-        return;
-    }
-
-    const { data } = await client.auth.getSession();
-    const token = data.session?.access_token;
-
-    if (!token) {
-        savePendingCheckout(plan, billingPeriod);
-        window.location.href = `login.html?checkout=1&plan=${encodeURIComponent(plan)}&billing=${encodeURIComponent(billingPeriod)}`;
-        return;
-    }
-
-    const originalText = button.textContent;
-    button.setAttribute("aria-busy", "true");
-    button.textContent = isAutomatic ? "Resuming Checkout..." : "Starting Checkout...";
-
-    try {
-        const response = await fetch(`${window.VEXTRON_API_BASE_URL}/api/checkout`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ plan, billingPeriod }),
-        });
-
-        const result = await response.json().catch(() => ({}));
-
-        if (!response.ok || !result.checkoutUrl) {
-            throw new Error(result.error || "Unable to start checkout.");
-        }
-
-        window.location.href = result.checkoutUrl;
-    } catch (error) {
-        console.error("Checkout failed:", error);
-        button.textContent = "Try Again";
-        window.setTimeout(() => {
-            button.textContent = originalText;
-            button.removeAttribute("aria-busy");
-        }, 2200);
-    }
 }
 
 function initFaqAccordion() {

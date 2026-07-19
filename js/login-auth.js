@@ -95,7 +95,6 @@
 
         setStatus("Login successful. Redirecting...", "success");
 
-        const params = new URLSearchParams(window.location.search);
-        window.location.href = params.get("checkout") === "1" ? "index.html#pricing" : "customer-dashboard/index.html";
+        window.location.href = "customer-dashboard/index.html";
     });
 }());

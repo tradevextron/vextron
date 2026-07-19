@@ -11,6 +11,8 @@ body {
 }
 
 .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
     display: flex;
     flex-direction: column;
     width: 180px;
@@ -200,4 +202,49 @@ body {
     width: 0;
     opacity: 0;
     pointer-events: none;
+}
+
+.dashboard-main {
+    min-height: 100vh;
+    margin-left: 60px;
+    background: #ffffff;
+    transition: margin-left 180ms ease;
+}
+
+.sidebar:not(.is-collapsed) ~ .dashboard-main {
+    margin-left: 180px;
+}
+
+.payment-gate {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    gap: 18px;
+    align-content: center;
+    color: #050505;
+    text-align: center;
+}
+
+.payment-gate[hidden] {
+    display: none;
+}
+
+.payment-gate p {
+    margin: 0;
+    font: 800 13px/1.4 Manrope, Inter, "Segoe UI", Arial, sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.payment-gate button {
+    min-width: 220px;
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 22px;
+    background: #050505;
+    color: #ffffff;
+    cursor: pointer;
+    font: 900 12px/1 Manrope, Inter, "Segoe UI", Arial, sans-serif;
+    letter-spacing: .08em;
+    text-transform: uppercase;
 }

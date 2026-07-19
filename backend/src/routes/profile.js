@@ -5,7 +5,11 @@ import { supabaseAdmin } from "../supabase.js";
 export const profileRouter = express.Router();
 
 profileRouter.get("/", requireUser, async (req, res) => {
-    const { data, error } = await supabaseAdmin
+    if (!supabaseAdmin) {
+        return res.status(503).json({ error: "Supabase service credentials are not configured." });
+    }
+
+    const { data: profile, error } = await supabaseAdmin
         .from("profiles")
         .select("id,email,full_name,selected_plan,role,created_at,updated_at")
         .eq("id", req.user.id)
@@ -15,5 +19,15 @@ profileRouter.get("/", requireUser, async (req, res) => {
         return res.status(500).json({ error: "Unable to load profile." });
     }
 
-    return res.json({ profile: data });
+    const { data: subscription, error: subscriptionError } = await supabaseAdmin
+        .from("subscriptions")
+        .select("plan,billing_period,status,paddle_subscription_id,paddle_transaction_id,updated_at")
+        .eq("user_id", req.user.id)
+        .maybeSingle();
+
+    if (subscriptionError) {
+        return res.status(500).json({ error: "Unable to load subscription." });
+    }
+
+    return res.json({ profile, subscription });
 });

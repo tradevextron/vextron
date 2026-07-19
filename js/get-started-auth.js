@@ -59,6 +59,13 @@
         return allowedPlans.includes(plan) ? plan : "none";
     }
 
+    function getSelectedBillingPeriod() {
+        const params = new URLSearchParams(window.location.search);
+        const billingPeriod = (params.get("billing") || "monthly").toLowerCase();
+
+        return billingPeriod === "yearly" ? "yearly" : "monthly";
+    }
+
     function hasSupabaseConfig() {
         return Boolean(
             config.url &&
@@ -92,6 +99,7 @@
         const password = passwordInput.value;
         const passwordConfirm = confirmInput.value;
         const selectedPlan = getSelectedPlan();
+        const selectedBillingPeriod = getSelectedBillingPeriod();
 
         if (!hasSupabaseConfig()) {
             setStatus("Supabase is not connected yet. Add your project URL and anon key in js/supabase-config.js.", "error");
@@ -160,6 +168,7 @@
                     full_name: fullName,
                     phone,
                     selected_plan: selectedPlan,
+                    selected_billing_period: selectedBillingPeriod,
                     contact_handle: contactHandle,
                     risk_agreement: true,
                     risk_agreement_at: new Date().toISOString(),
