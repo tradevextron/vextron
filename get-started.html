@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started | VEXTRON</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/get-started.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260708-1">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="js/supabase-config.js" defer></script>
+    <script src="js/oauth-auth.js" defer></script>
+    <script src="js/get-started-auth.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <section class="start-page" aria-label="Create VEXTRON access">
+            <a class="start-back-home" href="index.html#home" aria-label="Back to home">
+                <span aria-hidden="true">&larr;</span>
+                Back to home
+            </a>
+
+            <div class="start-shell">
+                <form class="start-card" id="start-form" aria-label="VEXTRON signup form" novalidate>
+                    <div class="start-brand">
+                        <img src="assets/written-logo.png" alt="VEXTRON">
+                    </div>
+
+                    <div class="start-form">
+                        <label>
+                            <span><b>*</b> Full Name</span>
+                            <input id="start-full-name" name="full-name" type="text" placeholder="Your full name." autocomplete="name" required>
+                        </label>
+                        <label>
+                            <span><b>*</b> Email</span>
+                            <input id="start-email" name="email" type="email" placeholder="Type your email here." autocomplete="email" required>
+                        </label>
+                        <label>
+                            <span><b>*</b> Number</span>
+                            <input id="start-phone" name="phone" type="tel" placeholder="Your phone or WhatsApp number." autocomplete="tel" required>
+                        </label>
+                        <label>
+                            <span><b>*</b> Selected Plan</span>
+                            <select id="start-selected-plan" name="selected-plan" required>
+                                <option value="none">Choose a plan</option>
+                                <option value="basic">Basic</option>
+                                <option value="pro">Pro</option>
+                                <option value="elite">Elite</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span><b>*</b> Password</span>
+                            <input id="start-password" name="password" type="password" placeholder="Create your password." autocomplete="new-password" minlength="8" required>
+                        </label>
+                        <label>
+                            <span><b>*</b> Rewrite Password</span>
+                            <input id="start-password-confirm" name="password-confirm" type="password" placeholder="Rewrite your password." autocomplete="new-password" minlength="8" required>
+                        </label>
+                        <label>
+                            <span>Telegram / WhatsApp</span>
+                            <input id="start-contact-handle" name="contact-handle" type="text" placeholder="@username or preferred contact." autocomplete="off">
+                        </label>
+                        <label class="start-risk-check">
+                            <input id="start-risk-agreement" name="risk-agreement" type="checkbox" required>
+                            <span><b>*</b> I understand trading involves risk and VEXTRON does not guarantee profits.</span>
+                        </label>
+                        <button id="start-submit" type="submit">
+                            Get Started
+                        </button>
+                    </div>
+
+                    <p class="start-auth-status" id="start-auth-status" role="status" aria-live="polite"></p>
+
+                    <p class="start-plan-note">Choose your VEXTRON plan from the pricing section after creating access.</p>
+
+                    <div class="start-divider"><span>or</span></div>
+
+                    <div class="start-socials" aria-label="Alternative signup">
+                        <button class="start-social-google" type="button" data-oauth-provider="google" aria-label="Continue with Google">
+                            <span aria-hidden="true">G</span>
+                        </button>
+                        <button class="start-social-github" type="button" data-oauth-provider="github" aria-label="Continue with GitHub">
+                            <svg aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.53 2.87 8.37 6.84 9.72.5.1.68-.22.68-.49v-1.73c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.34 9.34 0 0 1 12 7c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9v2.78c0 .27.18.59.69.49A10.1 10.1 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="start-login">Already have an account? <a href="login.html">Login</a></p>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

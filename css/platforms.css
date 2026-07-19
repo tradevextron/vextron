@@ -1,0 +1,392 @@
+.platforms-hero .service-lead {
+    max-width: 840px;
+}
+
+.platforms-section {
+    position: relative;
+    overflow: hidden;
+    padding: 88px 24px;
+    background: #000000;
+}
+
+.platforms-section::before {
+    content: "";
+    position: absolute;
+    inset: 8% auto auto 8%;
+    width: 520px;
+    height: 300px;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.075), transparent 68%);
+    opacity: 0.5;
+}
+
+.platforms-split {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(34px, 5vw, 78px);
+    align-items: start;
+}
+
+.platforms-split h2,
+.platforms-panel h2 {
+    max-width: 760px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(36px, 4.7vw, 68px);
+    font-weight: 950;
+    line-height: 1;
+}
+
+.platforms-copy {
+    display: grid;
+    gap: 18px;
+}
+
+.platforms-copy p,
+.platforms-grid p,
+.platforms-checklist p,
+.platforms-warning p {
+    margin: 0;
+    color: #aeb5ba;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.72;
+}
+
+.platforms-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 42px;
+}
+
+.platforms-grid article,
+.platforms-panel,
+.platforms-warning,
+.exness-panel,
+.exness-qr-card {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018)),
+        #050505;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        0 24px 58px rgba(0, 0, 0, 0.45);
+}
+
+.platforms-grid article {
+    min-height: 270px;
+    padding: 26px;
+}
+
+.platforms-grid span,
+.platforms-warning span {
+    display: inline-flex;
+    margin-bottom: 18px;
+    color: #8f989f;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.platforms-grid h3 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.16;
+}
+
+.platforms-panel {
+    position: relative;
+    z-index: 1;
+    padding: 42px;
+}
+
+.platforms-checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.platforms-checklist article {
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.028);
+}
+
+.platforms-checklist strong {
+    display: block;
+    margin-bottom: 9px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.25;
+}
+
+.platforms-warning {
+    position: relative;
+    z-index: 1;
+    margin-top: 42px;
+    padding: 24px;
+}
+
+.featured-rationale {
+    position: relative;
+    z-index: 1;
+    max-width: 980px;
+    margin: 34px auto 0;
+    padding: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.018)),
+        #050505;
+    text-align: center;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 22px 58px rgba(0, 0, 0, 0.38);
+}
+
+.featured-rationale h2 {
+    max-width: 760px;
+    margin: 0 auto 18px;
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 54px);
+    font-weight: 950;
+    line-height: 1;
+}
+
+.featured-rationale p:not(.service-kicker) {
+    max-width: 860px;
+    margin: 16px auto 0;
+    color: #b9c2c8;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.72;
+}
+
+.exness-panel {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+    gap: 32px;
+    align-items: center;
+    padding: 42px;
+}
+
+.exness-content h2 {
+    max-width: 720px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(36px, 4.7vw, 68px);
+    font-weight: 950;
+    line-height: 1;
+}
+
+.exness-content p,
+.exness-qr-card p {
+    margin: 18px 0 0;
+    color: #aeb5ba;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.72;
+}
+
+.exness-button {
+    min-width: 190px;
+    min-height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+    padding: 0 11px 0 22px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    color: #050505;
+    background: #ffffff;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.3px;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow:
+        0 0 22px rgba(255, 255, 255, 0.18),
+        0 16px 34px rgba(0, 0, 0, 0.34);
+    transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.exness-button:hover,
+.exness-button:focus-visible {
+    background: #d8d8d8;
+    transform: translateY(-2px);
+}
+
+.exness-button span {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 0.8;
+    padding-bottom: 4px;
+}
+
+.exness-qr-card,
+.broker-wordmark-card {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    padding: 28px 24px;
+    text-align: center;
+}
+
+.exness-qr-card span,
+.broker-wordmark-card span {
+    margin-bottom: 16px;
+    color: #8f989f;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.qr-frame {
+    position: relative;
+    width: min(260px, 100%);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 2px;
+    background: #ffffff;
+    box-shadow:
+        0 0 24px rgba(255, 255, 255, 0.14),
+        0 18px 42px rgba(0, 0, 0, 0.34);
+}
+
+.qr-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.qr-frame-branded strong {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 72px;
+    height: 72px;
+    display: grid;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    color: #12171a;
+    background: #ffffff;
+    font-size: 30px;
+    font-weight: 950;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    box-shadow: 0 0 0 8px #ffffff;
+}
+
+.broker-panel-xm {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018)),
+        #050505;
+}
+
+.broker-button-xm {
+    box-shadow:
+        0 0 22px rgba(255, 255, 255, 0.14),
+        0 16px 34px rgba(0, 0, 0, 0.34);
+}
+
+.broker-wordmark-card strong {
+    color: #ffffff;
+    font-size: clamp(74px, 10vw, 118px);
+    font-weight: 950;
+    letter-spacing: -4px;
+    line-height: 0.9;
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.16),
+        0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.broker-wordmark-card p {
+    max-width: 260px;
+    margin-top: 18px;
+}
+
+.promo-code {
+    width: fit-content;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.promo-code span {
+    color: #8f989f;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.promo-code strong {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 950;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.22);
+}
+
+.promo-code-compact {
+    margin-top: 18px;
+}
+
+@media (max-width: 920px) {
+    .platforms-split,
+    .platforms-grid,
+    .platforms-checklist,
+    .exness-panel {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .platforms-section {
+        padding: 68px 18px;
+    }
+
+    .platforms-panel {
+        padding: 28px 20px;
+    }
+}

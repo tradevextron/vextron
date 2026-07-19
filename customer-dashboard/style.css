@@ -1,0 +1,203 @@
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    background: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    min-height: 100vh;
+    padding: 22px 4px;
+    background: #000000;
+    transition: width 180ms ease;
+}
+
+.sidebar.is-collapsed {
+    width: 60px;
+}
+
+.brand-lockup {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 100%;
+    min-height: 46px;
+    margin: 0;
+    padding-left: 18px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: block;
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    flex: 0 0 auto;
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.brand-wordmark {
+    display: block;
+    width: 142px;
+    height: auto;
+    margin-left: -18px;
+    object-fit: contain;
+    transition: opacity 160ms ease, width 180ms ease, margin 180ms ease;
+}
+
+.rail-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.82);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.rail-icon svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sidebar.is-collapsed .brand-wordmark {
+    width: 0;
+    margin-left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.is-collapsed .brand-mark {
+    width: 56px;
+    height: 56px;
+}
+
+.sidebar.is-collapsed .rail-icon {
+    opacity: 0;
+}
+
+.sidebar.is-collapsed .brand-lockup:hover .brand-mark,
+.sidebar.is-collapsed .brand-lockup:focus-visible .brand-mark {
+    opacity: 0;
+    transform: scale(0.82);
+}
+
+.sidebar.is-collapsed .brand-lockup:hover .rail-icon,
+.sidebar.is-collapsed .brand-lockup:focus-visible .rail-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: fit-content;
+    min-height: 46px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -8px;
+    padding: 7px 8px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Manrope, Inter, "Segoe UI", Arial, sans-serif;
+    transition: background 160ms ease;
+}
+
+.profile-card:hover,
+.profile-card:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
+}
+
+.profile-avatar {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.18), transparent 34%),
+        #111111;
+    color: #ffffff;
+    font: 700 12px/1 Manrope, Inter, "Segoe UI", Arial, sans-serif;
+    flex: 0 0 auto;
+    letter-spacing: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 160ms ease, width 180ms ease;
+}
+
+.profile-name,
+.profile-status {
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profile-name {
+    color: #ffffff;
+    font: 700 13px/1.12 Manrope, Inter, "Segoe UI", Arial, sans-serif;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.profile-status {
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.58);
+    font: 600 10px/1.2 Manrope, Inter, "Segoe UI", Arial, sans-serif;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.sidebar.is-collapsed .profile-card {
+    width: 100%;
+    justify-content: center;
+    gap: 0;
+    padding: 6px 0;
+    background: transparent;
+}
+
+.sidebar.is-collapsed .profile-info {
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+}

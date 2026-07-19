@@ -1,0 +1,72 @@
+.announcement-bar {
+    width: 100%;
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.announcement-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 12px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    flex-wrap: wrap;
+}
+
+.announcement-badge {
+    background: #ffffff;
+    color: #050505;
+
+    padding: 5px 10px;
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.announcement-text {
+    color: #f1f1f1;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.announcement-link {
+    min-height: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #d8d8d8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    text-shadow: none;
+
+    transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.announcement-link:hover {
+    color: #ffffff;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.72),
+        0 0 26px rgba(255, 255, 255, 0.42),
+        0 0 46px rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+.announcement-link:focus-visible {
+    outline: 0;
+    color: #ffffff;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.72),
+        0 0 26px rgba(255, 255, 255, 0.42),
+        0 0 46px rgba(255, 255, 255, 0.18);
+}

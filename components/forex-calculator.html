@@ -1,0 +1,77 @@
+<section class="forex-calculator" id="calculator" aria-label="VEXTRON Forex calculator">
+    <div class="calculator-inner">
+        <div class="calculator-heading">
+            <p class="calculator-kicker">P/L Calculator</p>
+            <h2>Calculate Profit. <span>Know The Loss.</span></h2>
+            <p>A clean profit and loss calculator for Forex, XAU/USD, BTC/USD, and ETH/USD. Search a pair, choose direction, enter price levels, and see the estimated result instantly.</p>
+        </div>
+
+        <div class="calculator-shell">
+            <div class="calculator-form" aria-label="Trade inputs">
+                <div class="calculator-toolbar">
+                    <div>
+                        <span>VEXTRON Trade Planning</span>
+                        <strong>Profit &amp; Loss Calculator</strong>
+                    </div>
+                    <p>P/L Mode</p>
+                </div>
+
+                <div class="calculator-grid">
+                    <div class="calculator-field pair-search-field">
+                        <span>Pair Search</span>
+                        <input id="calc-pair-search" type="text" value="EUR/USD" aria-label="Search instrument pair" autocomplete="off">
+                        <div class="pair-search-dropdown" id="calc-pair-dropdown" aria-label="Pair search dropdown"></div>
+                    </div>
+
+                    <label>
+                        <span>Direction</span>
+                        <select id="calc-direction" aria-label="Trade direction">
+                            <option value="buy">Buy</option>
+                            <option value="sell">Sell</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span>Entry Price</span>
+                        <input id="calc-entry" type="number" inputmode="decimal" step="0.00001" value="1.08420">
+                    </label>
+
+                    <label>
+                        <span>Exit / Current Price</span>
+                        <input id="calc-exit" type="number" inputmode="decimal" step="0.00001" value="1.08920">
+                    </label>
+
+                    <label>
+                        <span>Trade Size</span>
+                        <input id="calc-size" type="number" inputmode="decimal" step="0.01" value="1.00">
+                    </label>
+                </div>
+
+                <button class="calculator-action" id="calc-button" type="button">
+                    Calculate P/L
+                    <span>&rarr;</span>
+                </button>
+            </div>
+
+            <aside class="calculator-results" aria-live="polite">
+                <div class="result-hero" id="calc-result-hero">
+                    <span>Estimated P/L</span>
+                    <strong id="calc-profit-loss">$500.00</strong>
+                    <p id="calc-summary">EUR/USD Buy from 1.08420 to 1.08920 with 1.00 lot.</p>
+                </div>
+
+                <div class="result-grid">
+                    <div><span>Pip / Point Value</span><strong id="calc-pip-value">$10.00</strong></div>
+                    <div><span>Move Captured</span><strong id="calc-move">50.0 pips</strong></div>
+                    <div><span>Trade Size</span><strong id="calc-size-output">1.00 lot</strong></div>
+                    <div><span>Direction</span><strong id="calc-direction-output">Buy</strong></div>
+                </div>
+
+                <div class="calculator-note">
+                    <span>Planning Note</span>
+                    <p>Estimated P/L can vary by broker contract size, spread, commission, swaps, execution, and live conversion rates.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>

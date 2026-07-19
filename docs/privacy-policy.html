@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEXTRON Privacy Policy</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 18mm 16mm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: #151515;
+            background: #ffffff;
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            font-size: 11.4px;
+            line-height: 1.55;
+        }
+
+        .document {
+            width: 100%;
+        }
+
+        .cover {
+            min-height: 250mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4mm 0 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand img:first-child {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        .brand img:last-child {
+            width: 170px;
+            height: 44px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .cover-title {
+            margin-top: 42mm;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 15px;
+            color: #5e5e5e;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before,
+        .eyebrow::after {
+            content: "";
+            width: 22px;
+            height: 1px;
+            background: #777777;
+        }
+
+        h1 {
+            max-width: 620px;
+            margin: 0;
+            color: #050505;
+            font-size: 54px;
+            font-weight: 900;
+            letter-spacing: -0.4px;
+            line-height: 0.96;
+        }
+
+        .cover-subtitle {
+            max-width: 590px;
+            margin: 22px 0 0;
+            color: #4f5961;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.62;
+        }
+
+        .cover-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 32mm;
+            border-top: 1px solid #d7d7d7;
+            padding-top: 16px;
+        }
+
+        .meta-box {
+            padding: 14px;
+            border: 1px solid #dedede;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .meta-box span {
+            display: block;
+            margin-bottom: 6px;
+            color: #777777;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .meta-box strong {
+            display: block;
+            color: #101010;
+            font-size: 12px;
+            line-height: 1.35;
+        }
+
+        .notice {
+            margin-top: 22mm;
+            padding: 14px 16px;
+            border-left: 3px solid #111111;
+            background: #f5f5f5;
+            color: #4c4c4c;
+            font-size: 10.8px;
+            line-height: 1.55;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .section {
+            padding-top: 8mm;
+            page-break-inside: avoid;
+        }
+
+        .section h2 {
+            margin: 0 0 10px;
+            color: #080808;
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.12;
+        }
+
+        .section h3 {
+            margin: 14px 0 7px;
+            color: #121212;
+            font-size: 13px;
+            font-weight: 850;
+        }
+
+        p {
+            margin: 0 0 9px;
+        }
+
+        ul {
+            margin: 7px 0 11px 18px;
+            padding: 0;
+        }
+
+        li {
+            margin: 0 0 5px;
+        }
+
+        .policy-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dcdcdc;
+        }
+
+        .policy-header strong {
+            color: #111111;
+            font-size: 13px;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+        }
+
+        .policy-header span {
+            color: #747474;
+            font-size: 10px;
+        }
+
+        .toc {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 9px;
+            margin-top: 20px;
+        }
+
+        .toc div {
+            padding: 10px 12px;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            background: #fafafa;
+            font-size: 10.5px;
+            font-weight: 700;
+        }
+
+        .signature-panel {
+            margin-top: 20mm;
+            display: grid;
+            grid-template-columns: 1fr 0.72fr;
+            gap: 20px;
+            align-items: end;
+            page-break-inside: avoid;
+        }
+
+        .signature-card {
+            min-height: 90px;
+            padding: 14px;
+            border: 1px solid #d8d8d8;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .signature-card img {
+            width: 160px;
+            height: 92px;
+            display: block;
+            object-fit: contain;
+            object-position: center;
+            mix-blend-mode: multiply;
+        }
+
+        .signature-line {
+            margin-top: 8px;
+            padding-top: 9px;
+            border-top: 1px solid #b8b8b8;
+        }
+
+        .signature-line strong {
+            display: block;
+            color: #111111;
+            font-size: 12px;
+        }
+
+        .signature-line span {
+            display: block;
+            margin-top: 2px;
+            color: #686868;
+            font-size: 10px;
+        }
+
+        .footer-note {
+            margin-top: 18mm;
+            padding-top: 12px;
+            border-top: 1px solid #dedede;
+            color: #777777;
+            font-size: 9.8px;
+        }
+    </style>
+</head>
+<body>
+    <main class="document">
+        <section class="cover">
+            <div>
+                <div class="brand">
+                    <img src="../assets/navbar-logo.png" alt="VEXTRON symbol">
+                    <img src="../assets/written-logo.png" alt="VEXTRON">
+                </div>
+
+                <div class="cover-title">
+                    <p class="eyebrow">Privacy Policy</p>
+                    <h1>Data Protection For A Disciplined Trading Platform.</h1>
+                    <p class="cover-subtitle">
+                        This Privacy Policy explains how VEXTRON collects, uses, protects, and manages personal information across its website, trading education services, signal access workflows, analytics tools, calculators, market updates, communications, and related platform features.
+                    </p>
+                </div>
+
+                <div class="cover-meta">
+                    <div class="meta-box">
+                        <span>Brand</span>
+                        <strong>VEXTRON</strong>
+                    </div>
+                    <div class="meta-box">
+                        <span>Effective Date</span>
+                        <strong>July 1, 2026</strong>
+                    </div>
+                    <div class="meta-box">
+                        <span>Contact</span>
+                        <strong>hello@vextron.pro</strong>
+                    </div>
+                </div>
+
+                <div class="notice">
+                    This document is a business-ready privacy policy draft for VEXTRON. It should be reviewed by qualified legal counsel before publication or commercial reliance, especially if VEXTRON serves users in multiple countries or regulated jurisdictions.
+                </div>
+            </div>
+        </section>
+
+        <section class="page-break">
+            <div class="policy-header">
+                <strong>VEXTRON Privacy Policy</strong>
+                <span>Effective July 1, 2026</span>
+            </div>
+
+            <div class="section">
+                <h2>Overview</h2>
+                <p>
+                    VEXTRON respects the privacy of users, visitors, traders, subscribers, collaborators, and business contacts who interact with our website, content, communication channels, tools, and services. We are committed to handling personal information responsibly, transparently, and only for legitimate business, platform, support, safety, and service-delivery purposes.
+                </p>
+                <p>
+                    VEXTRON provides forex, commodities, and crypto market education, signal-related workflows, trading calculators, market analysis, risk planning tools, performance tracking concepts, updates, and related trader-focused services. VEXTRON does not present this Privacy Policy as investment, legal, tax, or financial advice.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Contents</h2>
+                <div class="toc">
+                    <div>1. Information We Collect</div>
+                    <div>2. How We Use Information</div>
+                    <div>3. Trading And Platform Data</div>
+                    <div>4. Cookies And Analytics</div>
+                    <div>5. Sharing And Processors</div>
+                    <div>6. Data Security</div>
+                    <div>7. Retention</div>
+                    <div>8. User Rights</div>
+                    <div>9. International Users</div>
+                    <div>10. Contact And Updates</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1. Information We Collect</h2>
+                <p>Depending on how you interact with VEXTRON, we may collect the following categories of information:</p>
+                <ul>
+                    <li><strong>Contact information:</strong> name, email address, social media handle, Telegram handle, and messages you send to us.</li>
+                    <li><strong>Account and access information:</strong> login details, subscription status, plan selection, service requests, support history, and authentication-related records.</li>
+                    <li><strong>Trading workflow information:</strong> calculator inputs, risk preferences, trade planning notes, P/L book entries, performance review details, market interests, and setup review requests if you choose to provide them.</li>
+                    <li><strong>Payment and billing information:</strong> plan, transaction status, invoice records, and billing identifiers. Payment card or banking information may be handled by third-party payment processors and is not intended to be stored directly by VEXTRON unless clearly stated.</li>
+                    <li><strong>Technical information:</strong> IP address, device type, browser type, operating system, approximate location, referral source, page visits, timestamps, and diagnostic logs.</li>
+                    <li><strong>Communication information:</strong> emails, support messages, collaboration requests, feedback, suggestions, and responses to VEXTRON communications.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. How We Use Information</h2>
+                <p>VEXTRON may use collected information to:</p>
+                <ul>
+                    <li>provide, operate, maintain, and improve VEXTRON services, pages, tools, calculators, analysis, and user workflows;</li>
+                    <li>respond to support requests, questions, signal-access inquiries, suggestions, collaboration requests, and account issues;</li>
+                    <li>deliver service updates, market-related communications, platform notices, educational material, and important security or policy messages;</li>
+                    <li>process subscriptions, plan access, billing records, payments, refunds, and service administration;</li>
+                    <li>understand how users interact with VEXTRON and improve usability, reliability, content quality, and platform performance;</li>
+                    <li>protect VEXTRON, users, and services from misuse, fraud, spam, unauthorized access, security threats, and policy violations;</li>
+                    <li>comply with applicable legal, regulatory, accounting, tax, dispute-resolution, or enforcement obligations.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Trading And Platform Data</h2>
+                <p>
+                    VEXTRON may offer or discuss tools for margin calculation, profit/loss estimation, risk planning, trade setup review, kill switch logic, monthly P/L tracking, market analysis, market updates, event awareness, and related trading workflows. If users enter trading-related information into VEXTRON systems, we use it to provide the requested tool, calculation, feature, support, or service.
+                </p>
+                <p>
+                    Trading-related data can be sensitive because it may reveal strategy, preferences, risk appetite, trading frequency, or performance. VEXTRON aims to treat this information with care and does not sell individual trading records. Users should avoid submitting information they do not want processed or reviewed for service delivery.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>4. Cookies, Analytics, And Similar Technologies</h2>
+                <p>
+                    VEXTRON may use cookies, pixels, local storage, analytics tools, and similar technologies to keep services functioning, remember preferences, understand site performance, measure engagement, detect misuse, and improve user experience. Some tools may be provided by third parties such as analytics, hosting, security, communication, or advertising providers.
+                </p>
+                <p>
+                    Users may control cookies through browser settings. Blocking some cookies may affect website functionality, login behavior, personalization, analytics, or access to certain platform features.
+                </p>
+            </div>
+        </section>
+
+        <section class="page-break">
+            <div class="policy-header">
+                <strong>VEXTRON Privacy Policy</strong>
+                <span>Data Use, Security, Rights</span>
+            </div>
+
+            <div class="section">
+                <h2>5. How We Share Information</h2>
+                <p>VEXTRON does not sell personal information as a core business model. We may share information in limited situations, including:</p>
+                <ul>
+                    <li><strong>Service providers:</strong> hosting, email, analytics, payment, security, storage, customer support, automation, and communication providers that help operate VEXTRON.</li>
+                    <li><strong>Payment processors:</strong> providers that process transactions, subscription payments, refunds, billing records, fraud prevention, and payment verification.</li>
+                    <li><strong>Professional advisors:</strong> lawyers, accountants, auditors, consultants, or compliance advisors when needed for legitimate business purposes.</li>
+                    <li><strong>Legal and safety reasons:</strong> when required by law, court order, government request, dispute process, rights protection, fraud prevention, or security investigation.</li>
+                    <li><strong>Business transfers:</strong> in connection with a merger, acquisition, restructuring, financing, asset sale, or similar business transaction, subject to appropriate confidentiality protections.</li>
+                    <li><strong>With user direction:</strong> when you ask us to share information, connect a workflow, or communicate with a third party on your behalf.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Data Security</h2>
+                <p>
+                    VEXTRON uses reasonable administrative, technical, and organizational safeguards designed to protect information against unauthorized access, loss, misuse, alteration, or disclosure. These safeguards may include access controls, account protections, secure service providers, HTTPS-enabled transmission, internal restrictions, and monitoring for misuse.
+                </p>
+                <p>
+                    No website, platform, email system, payment workflow, or internet-based service can guarantee absolute security. Users are responsible for keeping passwords secure, using trusted devices, avoiding suspicious links, and contacting VEXTRON if they suspect unauthorized account activity.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>7. Data Retention</h2>
+                <p>
+                    VEXTRON retains information for as long as reasonably necessary to provide services, maintain account access, support users, keep business records, improve platform reliability, resolve disputes, prevent misuse, and satisfy legal, tax, accounting, or compliance obligations.
+                </p>
+                <p>
+                    Retention periods may vary based on the type of data, the reason it was collected, user requests, legal requirements, backup systems, fraud-prevention needs, and operational requirements. When information is no longer needed, VEXTRON will delete, anonymize, or restrict it where reasonably practical.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>8. User Rights And Choices</h2>
+                <p>
+                    Depending on your location and applicable law, you may have rights to request access, correction, deletion, restriction, objection, portability, withdrawal of consent, or information about how personal data is processed. You may also have rights to opt out of certain marketing communications or specific data-sharing activities.
+                </p>
+                <p>To make a privacy request, contact VEXTRON at <strong>hello@vextron.pro</strong>. We may need to verify your identity before responding. Some requests may be limited by legal, security, fraud-prevention, accounting, or operational requirements.</p>
+                <h3>Marketing communications</h3>
+                <p>
+                    You may unsubscribe from promotional emails where an unsubscribe option is provided, or contact us to request removal from non-essential marketing communications. We may still send transactional, security, billing, account, policy, or service-related messages.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>9. International Users</h2>
+                <p>
+                    VEXTRON may serve users across different countries. Information may be processed in countries other than where the user is located, including locations where our hosting providers, service providers, contractors, or business operations are based. Data protection laws may differ between jurisdictions.
+                </p>
+                <p>
+                    Where required, VEXTRON aims to use appropriate safeguards for international processing and transfers, such as contractual restrictions, service-provider controls, data minimization, and security practices.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>10. Children And Age Restrictions</h2>
+                <p>
+                    VEXTRON is not intended for children or minors. Our services are intended for users who are legally able to access trading education, market analysis, subscription tools, and related content in their jurisdiction. We do not knowingly collect personal information from children.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>11. Financial And Trading Disclaimer</h2>
+                <p>
+                    VEXTRON may provide market education, analysis, signals, calculators, updates, risk tools, and trading workflow support. These services are for educational and informational purposes only and do not guarantee profit, performance, market outcome, or loss prevention. Trading forex, commodities, crypto, and leveraged instruments involves substantial risk, including possible loss of capital.
+                </p>
+                <p>
+                    Users are responsible for their own trading decisions, broker selection, risk management, legal compliance, and financial suitability. VEXTRON is not responsible for losses resulting from user trading decisions, market volatility, broker execution, third-party platforms, outages, or misuse of information.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>12. Changes To This Policy</h2>
+                <p>
+                    VEXTRON may update this Privacy Policy from time to time. Changes may reflect new services, legal requirements, security practices, operational updates, or business needs. The updated version will show a new effective date. Continued use of VEXTRON after changes means the updated policy applies.
+                </p>
+            </div>
+        </section>
+
+        <section class="page-break">
+            <div class="policy-header">
+                <strong>VEXTRON Privacy Policy</strong>
+                <span>Contact And Approval</span>
+            </div>
+
+            <div class="section">
+                <h2>13. Contact Information</h2>
+                <p>For privacy, support, account, and service-related questions, contact:</p>
+                <p><strong>hello@vextron.pro</strong></p>
+                <p>For founder-level suggestions, collaborations, and partnership matters, contact:</p>
+                <p><strong>founder@vextron.pro</strong></p>
+            </div>
+
+            <div class="section">
+                <h2>14. Policy Approval</h2>
+                <p>
+                    This Privacy Policy is issued for VEXTRON as a statement of intended privacy practices and user-data handling standards as of the effective date below.
+                </p>
+
+                <div class="signature-panel">
+                    <div>
+                        <h3>Authorized Signatory</h3>
+                        <p>
+                            Signed for and on behalf of VEXTRON. This signature block represents founder acknowledgement of the policy draft and its intended use for VEXTRON business communications.
+                        </p>
+                    </div>
+                    <div class="signature-card">
+                        <img src="../assets/founder-signature.png" alt="Founder signature">
+                        <div class="signature-line">
+                            <strong>Founder, VEXTRON</strong>
+                            <span>Effective Date: July 1, 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="footer-note">
+                    Prepared for VEXTRON. This document should be reviewed by legal counsel before publication, especially for jurisdiction-specific privacy compliance such as GDPR, CCPA/CPRA, consumer protection rules, financial-services requirements, payment processing terms, and data-transfer obligations.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,369 @@
+:root {
+    --paper: #000000;
+    --soft: #121212;
+    --panel: #191919;
+    --ink: #FFFFFF;
+    --muted: rgba(255, 255, 255, 0.68);
+    --line: rgba(255, 255, 255, 0.12);
+    --accent: #FFFFFF;
+    --accent-2: #E5E5E5;
+    --accent-dark: #CFCFCF;
+    --accent-soft: rgba(255, 255, 255, 0.12);
+    --accent-glow: rgba(255, 255, 255, 0.24);
+    --brand-gradient: linear-gradient(180deg, #FFFFFF 0%, #D8D8D8 100%);
+}
+
+html,
+body {
+    background:
+        radial-gradient(circle at 78% 8%, rgba(255, 255, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.05), transparent 24%),
+        #000000;
+    color: #FFFFFF;
+}
+
+main {
+    background: #000000;
+}
+
+section,
+.site-section,
+.hero,
+.why-vextron,
+.how-it-works,
+.premium-system,
+.forex-calculator,
+.technology-infrastructure,
+.pricing,
+.faq,
+.cta,
+.footer,
+.contact-page,
+.service-page,
+.features-page,
+.analytics-page,
+.platforms-page,
+.login-page,
+.get-started-page {
+    background-color: #000000;
+}
+
+h1,
+h2,
+h3,
+h4,
+.section-title,
+.hero-title,
+.nav-logo,
+.brand-word,
+.footer-logo {
+    color: #FFFFFF;
+}
+
+p,
+li,
+.section-copy,
+.hero-copy,
+.muted,
+.eyebrow,
+.kicker,
+.card-copy,
+.footer a,
+.footer p {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+a,
+.accent,
+.highlight,
+.eyebrow,
+.kicker {
+    color: #FFFFFF;
+}
+
+.announcement-bar,
+.navbar,
+.site-header {
+    background: rgba(0, 0, 0, 0.92);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.market-strip {
+    background: #000000;
+}
+
+.market-strip::before {
+    background: linear-gradient(90deg, #000000, transparent);
+}
+
+.market-strip::after {
+    background: linear-gradient(270deg, #000000, transparent);
+}
+
+.market-pair {
+    color: rgba(255, 255, 255, 0.48);
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.08));
+}
+
+.market-pair strong {
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.18),
+        0 0 24px rgba(255, 255, 255, 0.08);
+}
+
+.hero-visual::before {
+    background: #000000;
+}
+
+.hero-visual::after,
+.hero-image-stage::before,
+.hero-image-stage::after {
+    background: radial-gradient(ellipse at 50% 50%, rgba(245, 245, 245, 0.20), rgba(180, 180, 180, 0.10) 42%, transparent 74%);
+}
+
+.navbar a,
+.nav-link,
+.menu-link,
+.nav-center a {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.navbar a:hover,
+.navbar a.is-active,
+.nav-link:hover,
+.nav-link.is-active,
+.menu-link:hover,
+.menu-link.is-active,
+.nav-center a:hover,
+.nav-center a:focus-visible,
+.nav-center a.is-active {
+    color: #FFFFFF;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.22);
+}
+
+.navbar a::after,
+.nav-link::after,
+.menu-link::after,
+.nav-center a::after {
+    background: linear-gradient(90deg, transparent, #FFFFFF, transparent);
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.58),
+        0 0 24px rgba(255, 255, 255, 0.26);
+}
+
+button,
+.button,
+.btn,
+.primary-button,
+.secondary-button,
+.hero-action,
+.cta-button,
+.book-call,
+.submit-button,
+input[type="submit"] {
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+        #121212;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.10),
+        0 16px 40px rgba(0, 0, 0, 0.42);
+}
+
+button:hover,
+.button:hover,
+.btn:hover,
+.primary-button:hover,
+.secondary-button:hover,
+.hero-action:hover,
+.cta-button:hover,
+.book-call:hover,
+.submit-button:hover,
+input[type="submit"]:hover {
+    border-color: rgba(255, 255, 255, 0.42);
+    background: var(--brand-gradient);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.20),
+        0 0 28px rgba(255, 255, 255, 0.18),
+        0 18px 46px rgba(0, 0, 0, 0.48);
+}
+
+.primary-button,
+.button.primary,
+.nav-action-primary,
+.cta-button-primary,
+.how-cta-button,
+.pricing-card-pro .pricing-card-button,
+.pricing-card-elite .pricing-card-button,
+.service-button,
+.industries-button,
+.exness-button,
+.broker-button-xm,
+.cta-button,
+.book-call,
+.submit-button,
+input[type="submit"] {
+    border: 0;
+    background: var(--brand-gradient);
+    color: #000000;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 18px 46px rgba(255, 255, 255, 0.10);
+}
+
+.primary-button:hover,
+.button.primary:hover,
+.nav-action-primary:hover,
+.nav-action-primary:focus-visible,
+.nav-action-primary:active,
+.nav-action-primary.is-active,
+.cta-button-primary:hover,
+.how-cta-button:hover,
+.pricing-card-pro .pricing-card-button:hover,
+.pricing-card-elite .pricing-card-button:hover,
+.service-button:hover,
+.industries-button:hover,
+.exness-button:hover,
+.broker-button-xm:hover,
+.cta-button:hover,
+.book-call:hover,
+.submit-button:hover,
+input[type="submit"]:hover {
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEEEEE 100%);
+    color: #000000;
+}
+
+.navbar .nav-actions .nav-action {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.02)),
+        #070707;
+    color: #E5E5E5 !important;
+}
+
+.navbar .nav-actions .nav-action.nav-action-primary {
+    border: 0;
+    background: linear-gradient(180deg, #FFFFFF 0%, #D8D8D8 100%) !important;
+    color: #050505 !important;
+    text-shadow: none !important;
+}
+
+.navbar .nav-actions .nav-action.nav-action-primary:hover,
+.navbar .nav-actions .nav-action.nav-action-primary:focus-visible {
+    background: linear-gradient(180deg, #FFFFFF 0%, #EEEEEE 100%) !important;
+    color: #050505 !important;
+}
+
+.navbar .nav-actions .nav-action.nav-action-primary span {
+    background: rgba(0, 0, 0, 0.08) !important;
+    color: #050505 !important;
+}
+
+.primary-button *,
+.button.primary *,
+.nav-action-primary *,
+.cta-button-primary *,
+.how-cta-button *,
+.pricing-card-pro .pricing-card-button *,
+.pricing-card-elite .pricing-card-button *,
+.service-button *,
+.industries-button *,
+.exness-button *,
+.broker-button-xm *,
+.cta-button *,
+.book-call *,
+.submit-button * {
+    color: #000000;
+}
+
+.button.primary span,
+.nav-action-primary span,
+.cta-button-icon,
+.cta-button-primary .cta-button-icon,
+.how-cta-button span,
+.service-button span,
+.industries-button span {
+    background: rgba(0, 0, 0, 0.08);
+    color: #000000;
+}
+
+.button.primary svg,
+.nav-action-primary svg,
+.cta-button-primary svg,
+.how-cta-button svg,
+.service-button svg,
+.industries-button svg {
+    color: #000000;
+    stroke: currentColor;
+}
+
+.card,
+.panel,
+.service-card,
+.feature-card,
+.pricing-card,
+.faq-item,
+.system-card,
+.calculator-card,
+.infrastructure-card,
+.contact-card,
+.login-card,
+.form-card,
+.glass-card {
+    border-color: rgba(255, 255, 255, 0.12);
+    background:
+        radial-gradient(circle at 80% 12%, rgba(255, 255, 255, 0.07), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.014)),
+        #121212;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+input,
+select,
+textarea {
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+    background: rgba(18, 18, 18, 0.94);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: rgba(255, 255, 255, 0.42);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.10);
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.58);
+}
+
+.divider,
+.line,
+hr {
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.glow,
+.orb,
+.hero-glow,
+.section-glow {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.10), transparent 62%);
+}
+
+.login-card {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: #ffffff;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.9),
+        0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.login-brand {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
