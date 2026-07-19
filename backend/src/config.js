@@ -26,7 +26,7 @@ function parseOrigins(value) {
 export const config = {
     nodeEnv: optional("NODE_ENV", "development"),
     port: Number(optional("PORT", "8080")),
-    allowedOrigins: parseOrigins(optional("ALLOWED_ORIGINS", "http://127.0.0.1:5501,http://localhost:5501")),
+    allowedOrigins: parseOrigins(optional("ALLOWED_ORIGINS", "http://127.0.0.1:5501,http://localhost:5501,https://vextron.pro,https://www.vextron.pro")),
     supabase: {
         url: required("SUPABASE_URL"),
         anonKey: required("SUPABASE_ANON_KEY"),
