@@ -2626,6 +2626,23 @@ function showPlanRequiredGate() {
     }
 }
 
+function setCheckoutRetryAction({ token, plan, billingPeriod }) {
+    if (!paymentRetry) {
+        return;
+    }
+
+    paymentRetry.onclick = async () => {
+        try {
+            paymentRetry.disabled = true;
+            await startPlanCheckout({ token, plan, billingPeriod });
+        } catch (error) {
+            console.error("Unable to open payment page:", error);
+            setPaymentStatus(error.message || "Unable to open payment. Please try again.", true);
+            paymentRetry.disabled = false;
+        }
+    };
+}
+
 async function requirePaymentBeforeAccess({ session, user, selectedPlan, accountState, billingPeriod }) {
     if (!session?.access_token) {
         return;
@@ -2677,28 +2694,27 @@ async function requirePaymentBeforeAccess({ session, user, selectedPlan, account
 
             setPaymentStatus("Payment is not active yet. Continue once Paddle finishes processing.", true);
 
-            if (paymentRetry) {
-                paymentRetry.onclick = () => {
-                    startPlanCheckout({ token, plan: selectedPlan, billingPeriod });
-                };
-            }
+            setCheckoutRetryAction({ token, plan: selectedPlan, billingPeriod });
             return;
         }
 
         await startPlanCheckout({ token, plan: selectedPlan, billingPeriod });
     } catch (error) {
         console.error("Payment gate failed:", error);
-        setPaymentStatus("We could not start payment automatically. Please continue to payment.", true);
-
-        if (paymentRetry) {
-            paymentRetry.onclick = () => {
-                startPlanCheckout({ token, plan: selectedPlan, billingPeriod });
-            };
-        }
+        setPaymentStatus(error.message || "We could not start payment automatically. Please continue to payment.", true);
+        setCheckoutRetryAction({ token, plan: selectedPlan, billingPeriod });
     }
 }
 
 async function startPlanCheckout({ token, plan, billingPeriod }) {
+    if (!window.VEXTRON_API_BASE_URL) {
+        throw new Error("Payment API is not configured.");
+    }
+
+    if (!normalizePlanName(plan)) {
+        throw new Error("Choose a valid plan before payment.");
+    }
+
     setPaymentStatus("Preparing your secure payment...");
     window.localStorage.setItem("vextron_pending_plan", plan);
     window.localStorage.setItem("vextron_pending_billing_period", billingPeriod);

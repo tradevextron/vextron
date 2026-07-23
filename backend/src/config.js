@@ -46,7 +46,8 @@ export const config = {
         environment: optional("PADDLE_ENVIRONMENT", "production"),
         apiKey: required("PADDLE_API_KEY"),
         webhookSecret: required("PADDLE_WEBHOOK_SECRET"),
-        checkoutUrl: optional("PADDLE_CHECKOUT_URL", "https://vextron.pro/customer-dashboard/"),
+        checkoutUrl: optional("PADDLE_CHECKOUT_URL", "https://vextron.pro/checkout.html"),
+        paymentPageUrl: optional("PADDLE_PAYMENT_PAGE_URL", "https://vextron.pro/checkout.html"),
         prices: {
             basic: {
                 monthly: required("PADDLE_PRICE_BASIC_MONTHLY"),

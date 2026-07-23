@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | VEXTRON</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/theme-overrides.css?v=20260708-1">
+    <style>
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            margin: 0;
+            background: #f5f5f2;
+            color: #050505;
+            font-family: Arial, sans-serif;
+        }
+
+        .checkout-shell {
+            display: grid;
+            gap: 18px;
+            width: min(420px, calc(100% - 32px));
+            text-align: center;
+        }
+
+        .checkout-shell img {
+            width: 168px;
+            margin: 0 auto 10px;
+        }
+
+        .checkout-shell h1,
+        .checkout-shell p {
+            margin: 0;
+        }
+
+        .checkout-shell h1 {
+            font-size: 28px;
+            line-height: 1.1;
+        }
+
+        .checkout-shell p {
+            color: rgba(5, 5, 5, 0.68);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .checkout-action {
+            min-height: 46px;
+            border: 0;
+            border-radius: 999px;
+            padding: 14px 22px;
+            background: #050505;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: 900;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .checkout-action[hidden] {
+            display: none;
+        }
+    </style>
+    <script src="js/supabase-config.js" defer></script>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js" defer></script>
+</head>
+<body>
+    <main class="checkout-shell" aria-label="VEXTRON secure checkout">
+        <img src="assets/written-logo.png" alt="VEXTRON">
+        <h1>Secure Checkout</h1>
+        <p data-checkout-status>Opening your payment page...</p>
+        <button class="checkout-action" type="button" data-checkout-retry hidden>Open Payment</button>
+    </main>
+    <script>
+        (function () {
+            const status = document.querySelector("[data-checkout-status]");
+            const retry = document.querySelector("[data-checkout-retry]");
+            const params = new URLSearchParams(window.location.search);
+            const transactionId = params.get("_ptxn") || params.get("transaction_id");
+
+            function setStatus(message, canRetry) {
+                status.textContent = message;
+                retry.hidden = !canRetry;
+            }
+
+            function getSuccessUrl() {
+                return new URL("customer-dashboard/index.html", window.location.href).href;
+            }
+
+            function openCheckout() {
+                const paddleConfig = window.VEXTRON_PADDLE || {};
+
+                if (!transactionId) {
+                    setStatus("Payment transaction is missing. Please return to your dashboard and try again.", false);
+                    return;
+                }
+
+                if (!window.Paddle || !paddleConfig.clientToken) {
+                    setStatus("Paddle checkout is not configured yet. Add your Paddle client-side token.", true);
+                    return;
+                }
+
+                if (paddleConfig.environment === "sandbox" && window.Paddle.Environment) {
+                    window.Paddle.Environment.set("sandbox");
+                }
+
+                window.Paddle.Initialize({
+                    token: paddleConfig.clientToken,
+                });
+
+                setStatus("Opening your secure payment window...", false);
+                window.Paddle.Checkout.open({
+                    transactionId,
+                    settings: {
+                        displayMode: "overlay",
+                        theme: "light",
+                        successUrl: getSuccessUrl(),
+                    },
+                });
+            }
+
+            retry.addEventListener("click", openCheckout);
+
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", openCheckout);
+            } else {
+                window.setTimeout(openCheckout, 0);
+            }
+        }());
+    </script>
+</body>
+</html>

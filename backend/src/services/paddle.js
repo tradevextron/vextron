@@ -42,7 +42,8 @@ export async function createCheckoutTransaction({ user, plan, billingPeriod, pri
 
     return {
         transactionId: transaction.id,
-        checkoutUrl: transaction.checkout?.url || null,
+        checkoutUrl: `${config.paddle.paymentPageUrl}?_ptxn=${encodeURIComponent(transaction.id)}`,
+        paddleCheckoutUrl: transaction.checkout?.url || null,
     };
 }
 
