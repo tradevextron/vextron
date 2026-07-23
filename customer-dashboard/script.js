@@ -504,12 +504,6 @@ function insertUpgradeCard() {
 
 insertUpgradeCard();
 
-const navigationEntry = performance.getEntriesByType("navigation")[0];
-
-if (navigationEntry?.type === "reload" && document.body.dataset.page !== "profile") {
-    window.location.replace("profile.html");
-}
-
 const sidebar = document.querySelector(".sidebar");
 const brandToggle = document.querySelector(".brand-lockup");
 const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
