@@ -16,6 +16,10 @@ checkoutRouter.post("/", requireUser, async (req, res) => {
 
     const priceId = config.paddle.prices[plan][billingPeriod];
 
+    if (!priceId) {
+        return res.status(503).json({ error: "Payment price is not configured for this plan." });
+    }
+
     try {
         const checkout = await createCheckoutTransaction({
             user: req.user,

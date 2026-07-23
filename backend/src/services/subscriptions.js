@@ -41,7 +41,8 @@ export async function applyPaddleEvent(event) {
     const plan = customData.plan || mappedPlan.plan;
     const billingPeriod = customData.billing_period || mappedPlan.billingPeriod;
     const subscriptionId = data.subscriptionId || data.subscription_id || data.id;
-    const status = data.status || "unknown";
+    const rawStatus = data.status || "unknown";
+    const status = eventType === "transaction.completed" ? "active" : rawStatus;
 
     if (eventType.startsWith("transaction.") || eventType.startsWith("subscription.")) {
         await supabaseAdmin
@@ -65,6 +66,7 @@ export async function applyPaddleEvent(event) {
                 .from("profiles")
                 .update({
                     selected_plan: plan,
+                    selected_billing_period: billingPeriod,
                     updated_at: new Date().toISOString(),
                 })
                 .eq("id", userId);
