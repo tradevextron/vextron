@@ -4,8 +4,3 @@ window.VEXTRON_SUPABASE = {
 };
 
 window.VEXTRON_API_BASE_URL = "https://vextron-production.up.railway.app";
-
-window.VEXTRON_PADDLE = {
-    environment: "production",
-    clientToken: "",
-};

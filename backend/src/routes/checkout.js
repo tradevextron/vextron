@@ -6,6 +6,17 @@ import { normalizeBillingPeriod, normalizePlan } from "../utils/plans.js";
 
 export const checkoutRouter = express.Router();
 
+checkoutRouter.get("/config", (req, res) => {
+    if (!config.paddle.clientToken) {
+        return res.status(503).json({ error: "Paddle client token is not configured." });
+    }
+
+    return res.json({
+        environment: config.paddle.environment,
+        clientToken: config.paddle.clientToken,
+    });
+});
+
 checkoutRouter.post("/", requireUser, async (req, res) => {
     const plan = normalizePlan(req.body?.plan);
     const billingPeriod = normalizeBillingPeriod(req.body?.billingPeriod);

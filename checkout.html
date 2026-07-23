@@ -88,16 +88,44 @@
                 return new URL("customer-dashboard/index.html", window.location.href).href;
             }
 
-            function openCheckout() {
-                const paddleConfig = window.VEXTRON_PADDLE || {};
+            async function getPaddleConfig() {
+                const inlineConfig = window.VEXTRON_PADDLE || {};
+
+                if (inlineConfig.clientToken) {
+                    return inlineConfig;
+                }
+
+                if (!window.VEXTRON_API_BASE_URL) {
+                    throw new Error("Payment API is not configured.");
+                }
+
+                const response = await fetch(`${window.VEXTRON_API_BASE_URL}/api/checkout/config`);
+                const result = await response.json().catch(() => ({}));
+
+                if (!response.ok || !result.clientToken) {
+                    throw new Error(result.error || "Paddle client token is not configured.");
+                }
+
+                return result;
+            }
+
+            async function openCheckout() {
+                let paddleConfig = null;
 
                 if (!transactionId) {
                     setStatus("Payment transaction is missing. Please return to your dashboard and try again.", false);
                     return;
                 }
 
-                if (!window.Paddle || !paddleConfig.clientToken) {
-                    setStatus("Paddle checkout is not configured yet. Add your Paddle client-side token.", true);
+                if (!window.Paddle) {
+                    setStatus("Paddle checkout did not load. Check your connection and try again.", true);
+                    return;
+                }
+
+                try {
+                    paddleConfig = await getPaddleConfig();
+                } catch (error) {
+                    setStatus(error.message || "Paddle checkout is not configured yet.", true);
                     return;
                 }
 

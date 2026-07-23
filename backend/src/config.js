@@ -16,6 +16,16 @@ function optional(name, fallback = "") {
     return process.env[name] || fallback;
 }
 
+function firstOptional(names, fallback = "") {
+    for (const name of names) {
+        if (process.env[name]) {
+            return process.env[name];
+        }
+    }
+
+    return fallback;
+}
+
 function parseOrigins(value) {
     return value
         .split(",")
@@ -46,6 +56,7 @@ export const config = {
         environment: optional("PADDLE_ENVIRONMENT", "production"),
         apiKey: required("PADDLE_API_KEY"),
         webhookSecret: required("PADDLE_WEBHOOK_SECRET"),
+        clientToken: firstOptional(["PADDLE_CLIENT_TOKEN", "PADDLE_CLIENT_SIDE_TOKEN"]),
         checkoutUrl: optional("PADDLE_CHECKOUT_URL", "https://vextron.pro/checkout.html"),
         paymentPageUrl: optional("PADDLE_PAYMENT_PAGE_URL", "https://vextron.pro/checkout.html"),
         prices: {
@@ -66,7 +77,7 @@ export const config = {
 };
 
 export function missingEnvironmentVariables() {
-    return [
+    const missing = [
         "SUPABASE_URL",
         "SUPABASE_ANON_KEY",
         "SUPABASE_SERVICE_ROLE_KEY",
@@ -79,4 +90,10 @@ export function missingEnvironmentVariables() {
         "PADDLE_PRICE_PRO_YEARLY",
         "PADDLE_PRICE_ELITE_YEARLY",
     ].filter((name) => !process.env[name]);
+
+    if (!process.env.PADDLE_CLIENT_TOKEN && !process.env.PADDLE_CLIENT_SIDE_TOKEN) {
+        missing.push("PADDLE_CLIENT_TOKEN");
+    }
+
+    return missing;
 }
